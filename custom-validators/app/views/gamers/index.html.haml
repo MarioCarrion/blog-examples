@@ -1,0 +1,23 @@
+%h1 Add your games
+
+- if @gamer.errors.any?
+  #error_explanation
+    %h2
+      =pluralize(@gamer.errors.count, 'error')
+      prohibited this user from being saved:
+    %ul
+      - @gamer.errors.full_messages.each do |msg|
+        %li= msg
+
+= form_for @gamer do |f|
+  .field
+    = f.label :name
+    %br
+    = f.text_field :name
+  %h3 Games
+  #games
+    = f.fields_for :games do |task|
+      = render 'game_fields', f: task
+    .links
+      = link_to_add_association 'add game', f, :games
+  = f.submit

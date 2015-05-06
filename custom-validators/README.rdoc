@@ -1,0 +1,16 @@
+== README
+
+This is a full Ruby on Rails example of how to implement a custom validator.
+
+Please look at the original blog post for more information:
+
+== Setup
+
+The usual steps are required
+
+bundle install
+bundle exec rake db:create:all
+bundle exec rake db:migrate
+bundle exec rake db:seed
+
+bundle exec rails server
